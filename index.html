@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="relative w-screen h-screen" id="app">
+    <div
+            v-for="item in items"
+            class="imageContainer"
+            :key="item.image"
+            :style="{ backgroundImage: `linear-gradient( rgba(0,0,0, .1),  rgba(0,0,0, .1)),url('${item.image}')`,
+  opacity:item.tclz === 't-filled'? 1:0,
+}"
+    ></div>
+
+    <div
+            v-for="(item, index) in items"
+            :key="item.key"
+            :style="{left:`${item.left}%`}"
+            class="litem"
+    >
+        <div>
+            <div :class="[item.tclz,'title-text']">
+                {{item.key}}
+            </div>
+            <div class="flex justify-center items-center">
+                <div>
+                    <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                            class="w-6 h-6 text-white mr-3"
+                            fill="currentColor"
+                    >
+                        <path
+                                d="M425.951 89.021C386.864 32.451 324.917 0 256.006 0S125.148 32.451 86.061 89.021c-38.895 56.284-47.876 127.541-24.072 190.496 6.367 17.192 16.488 33.895 30.01 49.547l150.378 176.634A17.895 17.895 0 00256.006 512a17.892 17.892 0 0013.629-6.302l150.336-176.586c13.582-15.742 23.69-32.427 30.004-49.481 23.852-63.069 14.871-134.326-24.024-190.61zm-9.5 178.072c-4.869 13.158-12.818 26.167-23.613 38.68-.03.03-.06.06-.084.096L256.006 466.487 119.174 305.768c-10.789-12.502-18.738-25.51-23.655-38.794-19.686-52.065-12.215-110.981 19.991-157.592 32.307-46.76 83.519-73.578 140.496-73.578 56.976 0 108.182 26.817 140.49 73.578 32.212 46.611 39.689 105.527 19.955 157.711z"
+                        />
+                        <path
+                                d="M256.006 106.219c-55.276 0-100.252 44.97-100.252 100.252s44.97 100.252 100.252 100.252 100.252-44.97 100.252-100.252c0-55.276-44.976-100.252-100.252-100.252zm0 164.699c-35.536 0-64.448-28.912-64.448-64.448 0-35.536 28.912-64.448 64.448-64.448 35.536 0 64.448 28.912 64.448 64.448s-28.912 64.448-64.448 64.448z"
+                        />
+                    </svg>
+                </div>
+                <span class="location-text">{{item.loc}}</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="fixed flex inset-x-0 top-0 h-24 ">
+        <div class="w-2/5 flex items-center pl-10">
+            <button
+                    class="mr-20 w-12 h-10 bg-white flex items-center justify-center"
+            >
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                        class="w-5 h-5 text-gray-500"
+                        fill="currentColor"
+                >
+                    <path
+                            d="M492 236H20c-11.046 0-20 8.954-20 20s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20zM492 76H20C8.954 76 0 84.954 0 96s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20zM492 396H20c-11.046 0-20 8.954-20 20s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20z"
+                    />
+                </svg>
+            </button>
+            <ul class="flex">
+                <li class="mr-10 text-lg">
+                    <a href="">About</a>
+                </li>
+                <li class="mr-10 text-lg">
+                    <a href="">Places</a>
+                </li>
+                <li class="mr-10 text-lg">
+                    <a href="">Equipment</a>
+                </li>
+            </ul>
+        </div>
+        <div class="w-1/5 flex items-center justify-center text-3xl">
+            <a href="">Free Style</a>
+        </div>
+        <div class="w-2/5 flex items-center justify-end pr-10">
+            <div class="flex items-end">
+                <form class="">
+                    <input
+                            class="x text-white border-b-2 border-white bg-transparent"
+                            id="search"
+                            type="text"
+                            placeholder=""
+                    />
+                </form>
+                <div class="ml-2">
+                    <svg
+                            class="w-6 h-6 text-white"
+                            viewBox="0 0 515.558 515.558"
+                            fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                                d="M378.344 332.78c25.37-34.645 40.545-77.2 40.545-123.333C418.889 93.963 324.928.002 209.444.002S0 93.963 0 209.447s93.961 209.445 209.445 209.445c46.133 0 88.692-15.177 123.337-40.547l137.212 137.212 45.564-45.564L378.344 332.78zm-168.899 21.667c-79.958 0-145-65.042-145-145s65.042-145 145-145 145 65.042 145 145-65.043 145-145 145z"
+                        />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="fixed inset-x-0 bottom-0 h-20  flex justify-between ">
+        <div class="flex items-center p-10">
+            <div class=" w-10 h-10 relative overflow-hidden">
+                <div
+                        v-for="(item, index) in items"
+                        class="absolute w-10 h-10 text-2xl  left-0 num flex items-center justify-center"
+                        :key="item.ix"
+                        :style="{ top: `${(index-1)*40}px`}"
+                >
+                    <span>{{item.ix}}</span>
+                </div>
+            </div>
+            <div class="h-2 w-48 bg-bar mr-3 relative rounded-sm">
+                <div
+                        class="absolute inset-y-0 w-4 bg-white rounded-sm bar-in"
+                        :style="{left:`${(parseInt(items[1].ix)-1)*48}px`}"
+                ></div>
+            </div>
+            <div class="text-2xl">04</div>
+        </div>
+        <div class="flex items-center bg-white p-6">
+            <div class="mr-3 text-gray-500 text-3xl">explore more</div>
+            <div class="w-20 bg-gray-500 play"></div>
+            <div
+                    class="w-10 h-10 border border-gray-500 flex justify-center items-center rounded-full"
+            >
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 494.148 494.148"
+                        class="w-3 h-3 text-gray-500"
+                        fill="currentColor"
+                >
+                    <path
+                            d="M405.284 201.188L130.804 13.28C118.128 4.596 105.356 0 94.74 0 74.216 0 61.52 16.472 61.52 44.044v406.124c0 27.54 12.68 43.98 33.156 43.98 10.632 0 23.2-4.6 35.904-13.308l274.608-187.904c17.66-12.104 27.44-28.392 27.44-45.884.004-17.48-9.664-33.764-27.344-45.864z"
+                    />
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

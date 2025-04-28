@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Teko&display=swap");
+
+html,
+body {
+    font-family: "Odibee Sans", cursive;
+    color: white;
+}
+#app {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.imageContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100%;
+    -webkit-transition: opacity 2s ease-in-out;
+    -moz-transition: opacity 2s ease-in-out;
+    -o-transition: opacity 2s ease-in-out;
+    transition: opacity 2s ease-in-out;
+
+    background-size: cover;
+    background-position: center top;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.litem {
+    position: absolute;
+    top: 0;
+    width: 50vw;
+    height: 100vh;
+    transition: left 2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.t-filled {
+    background-position: 0 100%;
+}
+.t-empty {
+    background-position: 0 0;
+}
+/*Based on:  https://codepen.io/zitrusfrisch/full/fjbal */
+.title-text {
+    background-image: -webkit-linear-gradient(transparent 50%, white 50%);
+    background-repeat: repeat;
+    transition: background-position 2.5s;
+    background-size: 100% 200%;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font: bold 5vmax "Teko", Impact;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: #ffffffaa;
+}
+
+.bg-bar {
+    background-color: #ffffff55;
+}
+
+.num {
+    transition: top 2s;
+}
+.bar-in {
+    transition: left 2s;
+}
+
+.location-text {
+    font-family: "Nunito", sans-serif;
+    font-size: 1.25rem;
+}
