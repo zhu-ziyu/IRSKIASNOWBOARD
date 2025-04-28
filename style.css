@@ -34,7 +34,7 @@ body {
 .litem {
     position: absolute;
     top: 0;
-    width: 50vw;
+    width: 20vw;
     height: 100vh;
     transition: left 2s;
     display: flex;
@@ -100,4 +100,17 @@ body {
     transform-origin: top right;
     position: relative;
     z-index: 9999;
+}
+
+
+
+
+.signature {
+    position: absolute;    /* 脱离文档流 */
+    bottom: 1rem;          /* 距底部 1rem */
+    right: 1rem;           /* 距右侧 1rem */
+    font-size: 0.75rem;    /* 小字号 */
+    color: rgba(255,255,255,0.7);  /* 半透明白，或根据背景换色 */
+    pointer-events: none;  /* 不影响底下交互 */
+    z-index: 10000;        /* 保证最顶层 */
 }
