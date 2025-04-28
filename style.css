@@ -50,7 +50,7 @@ body {
 .t-empty {
     background-position: 0 0;
 }
-/*Based on:  https://codepen.io/zitrusfrisch/full/fjbal */
+
 .title-text {
     background-image: -webkit-linear-gradient(transparent 50%, white 50%);
     background-repeat: repeat;
@@ -80,4 +80,24 @@ body {
 .location-text {
     font-family: "Nunito", sans-serif;
     font-size: 1.25rem;
+}
+
+
+
+/* 绝对定位到 header 的右上，并留 1rem 间隙 */
+.logo-container {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    /* 清掉 margin-left/padding 之类的旧设置 */
+    margin: 0;
+    padding: 0;
+}
+
+/* 放大 5 倍，以右上为中心，确保在最前面 */
+.logo-image {
+    transform: scale(0.5);
+    transform-origin: top right;
+    position: relative;
+    z-index: 9999;
 }
