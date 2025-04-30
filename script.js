@@ -5,7 +5,7 @@ var app = new Vue({
             {
                 ix: "01",
                 tclz: "t-empty",
-                key: "OFSAA SKI Team GIRL 2024 - 2025",
+                key: "OFSAA Snowboard Team GIRL 2024 - 2025",
                 loc: "Alpine Skiing Club, Collingwood",
                 left: -40,
                 image: "img/main3.png"
@@ -13,7 +13,7 @@ var app = new Vue({
             {
                 ix: "02",
                 tclz: "t-filled",
-                key: "OFSAA SKI Team BOY 2024 - 2025",
+                key: "OFSAA Snowboard Team BOY 2024 - 2025",
                 loc: "Alpine Skiing Club, Collingwood",
                 left: 40,
                 image: "img/main4.png"
