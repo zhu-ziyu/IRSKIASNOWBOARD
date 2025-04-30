@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IRHS Ski &amp; Snowboard Team (Mobile)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Reset & base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; font-family: Arial, sans-serif; color: #fff; }
+
+    /* 背景层 */
+    .bg {
+      background: url("/img/main1.png") center/cover no-repeat;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 1rem;
+      position: relative;
+    }
+
+    /* 顶部 Logo */
+    .bg .logo-top {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      width: 48px;
+      height: auto;
+    }
+
+    /* 标题 */
+    .title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 8px rgba(0,0,0,0.7);
+    }
+
+    /* 导航按钮 */
+    .nav {
+      width: 80%;
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .nav a {
+      background: rgba(255,255,255,0.8);
+      color: #000;
+      text-decoration: none;
+      padding: 0.75rem;
+      border-radius: 0.25rem;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+    .nav a:hover {
+      background: rgba(255,255,255,1);
+    }
+
+    /* 底部 Logo */
+    .footer-logo {
+      position: absolute;
+      bottom: 1rem;
+      width: 60px;
+      height: auto;
+    }
+
+
+
+  .dev-note {
+  font-size: 0.75rem;       /* 小号文字 */
+  margin-top: 2rem;         /* 向下推一点 */
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+  }
+
+  </style>
+</head>
+<body>
+<div class="bg">
+  <img src="logo.png" alt="IRHS Logo" class="logo-top">
+  <h1 class="title">IRHS Ski &amp; Snowboard Team</h1>
+  <div class="nav">
+    <a href="about.html">About</a>
+    <a href="Notify.html">Notify</a>
+    <a href="https://www.laromni.com" target="_blank">Contact</a>
+  </div>
+
+  <!-- 改动这里 -->
+  <p class="dev-note">
+    Mobile adaptation is still under development and is not the final version.
+  </p>
+
+  <img src="logo.png" alt="IRHS Logo" class="footer-logo">
+</div>
+
+</body>
+</html>
