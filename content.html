@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trevi Fountain</title>
+
+    <!-- 引入 React 和 ReactDOM -->
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- 引入 Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- 引入粒子动画库 -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            background: url('img/IMG_4527.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        #contact-form-root {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40vh;
+            position: relative;
+            z-index: 10;
+        }
+
+        .jianyu-form {
+            background-color: transparent;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px white;
+            max-width: 500px;
+            width: 100%;
+            text-align: center; /* 全部文字居中 */
+        }
+
+        .jianyu-input, .jianyu-textarea {
+            width: 100%;
+            padding: 0px;
+            margin-top: 5px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            text-align: center; /* 让输入的文字居中 */
+        }
+
+        .jianyu-input:focus, .jianyu-textarea:focus {
+            outline: none;
+            border-color: cadetblue;
+        }
+
+        .jianyu-button {
+            background-color: transparent;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .jianyu-button:hover {
+            background-color: black;
+            text-align: center;
+        }
+
+        .jianyu-status-success {
+            color: green;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .jianyu-status-error {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .jianyu-textarea {
+            resize: none; /* 禁止拖拽放大 */
+        }
+
+
+        /* 如果你只想影响 Notify.html 那里的表格，可以用更具体的选择器 */
+        /* Notify.html 里的表格文字 */
+        /* 仅针对 Notify.html 中带 .schedule 的表格 */
+        .schedule table th,
+        .schedule table td {
+            color: #fff !important;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important;
+        }
+
+
+
+        table th,
+        table td {
+            color: #fff !important;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important;
+        }
+
+        /* Instagram 链接在表格下方居中 */
+       .instagram-link {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .insta-icon {
+            width: 12rem;
+            height: 12rem;
+            border-radius: 50%;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div style="
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  margin: 6rem 0 2rem;  /* 上边距从 4rem 改成 6rem */
+">
+    <h1>
+        IRHS Ski &amp; Snowboard Team<br>
+    </h1>
+    <h3>
+        Welcome to the IRHS message board!<br>
+        Feel free to anonymously send feedback or questions about training, events, or gear—our coaches will read and respond promptly.
+    </h3>
+</div>
+<!-- 粒子动画 -->```
+
+<!-- 放在 </table> 之后，.schedule 容器内 -->
+<div class="instagram-link">
+    <a href="https://www.instagram.com/ridge_sportss/" target="_blank" rel="noopener">
+        <img src="/img/15707869.png" alt="Instagram" class="insta-icon">
+    </a>
+</div>
+
+<!-- 在这里挂载 React 组件 -->
+<div id="contact-form-root"></div>
+
+<!-- JSX 脚本 -->
+<script type="text/babel">
+    const { useState } = React;
+
+    const ContactForm = () => {
+        const [formData, setFormData] = useState({
+            name: '',
+            gmail: '',
+            message: ''
+        });
+        const [loading, setLoading] = useState(false);
+        const [submitStatus, setSubmitStatus] = useState('idle');
+        const [error, setError] = useState('');
+
+        const handleChange = (e) => {
+            const { name, value } = e.target;
+            setFormData((prevState) => ({
+                ...prevState,
+                [name]: value
+            }));
+        };
+
+        const handleSubmit = async (e) => {
+            e.preventDefault();
+            setLoading(true);
+            setSubmitStatus('idle');
+
+            const webhookUrl = 'https://discord.com/api/webhooks/1291091812370481182/8fuo4DgwXln-1jbU6MPQFYjxjjbZ1Vkkj-x4JdJNbN2NdtjgGICXXrYhCvuuaZ2NyuJJ';
+
+            try {
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        content: `New contact form submission:\nName: ${formData.name || 'Anonymous'}\nGmail: ${formData.gmail}\nMessage: ${formData.message}`,
+                    }),
+                });
+
+                if (response.ok) {
+                    setSubmitStatus('success');
+                    setFormData({
+                        name: '',
+                        gmail: '',
+                        message: ''
+                    });
+                } else {
+                    setSubmitStatus('error');
+                    setError('An error occurred while submitting the form.');
+                }
+            } catch (err) {
+                setSubmitStatus('error');
+                setError('An error occurred while submitting the form.');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        return (
+            <form onSubmit={handleSubmit} className="jianyu-form">
+                <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-black">Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="jianyu-input"
+                    />
+                </div>
+                <div>
+                    <label htmlFor="gmail" className="block text-sm font-medium text-black">gmail</label>
+                    <input
+                        type="text"
+                        id="gmail"
+                        name="gmail"
+                        value={formData.gmail}
+                        onChange={handleChange}
+                        required
+                        className="jianyu-input"
+                    />
+                </div>
+                <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-black">Message</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                        rows={4}
+                        className="jianyu-textarea"
+                    ></textarea>
+                </div>
+                <div>
+                    <button
+                        type="submit"
+                        disabled={loading}
+                        className="jianyu-button"
+                    >
+                        {loading ? 'Sending...' : 'Send Message'}
+                    </button>
+                </div>
+                {submitStatus === 'success' && (
+                    <p className="jianyu-status-success">Message sent successfully!</p>
+                )}
+                {submitStatus === 'error' && (
+                    <p className="jianyu-status-error">{error || 'There was an error sending your message. Please try again.'}</p>
+                )}
+            </form>
+        );
+    };
+
+    ReactDOM.render(<ContactForm />, document.getElementById('contact-form-root'));
+</script>
+
+<!-- 粒子动画设置 -->
+</body>
+</html>
